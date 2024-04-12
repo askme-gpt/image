@@ -12,7 +12,7 @@ use Intervention\Image\Interfaces\PointInterface;
 class PlaceModifier extends SpecializableModifier
 {
     public function __construct(
-        public mixed $element,
+        public $element,
         public string $position,
         public int $offset_x,
         public int $offset_y,

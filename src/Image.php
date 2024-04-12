@@ -101,7 +101,7 @@ final class Image implements ImageInterface
     protected Origin $origin;
 
     /**
-     * Color is mixed with transparent areas when converting to a format which
+     * Color is with transparent areas when converting to a format which
      * does not support transparency.
      *
      * @var ColorInterface
@@ -205,7 +205,7 @@ final class Image implements ImageInterface
      *
      * @see ImageInterface::removeAnimation(
      */
-    public function removeAnimation(int|string $position = 0): ImageInterface
+    public function removeAnimation( $position = 0): ImageInterface
     {
         return $this->modify(new RemoveAnimationModifier($position));
     }
@@ -247,7 +247,7 @@ final class Image implements ImageInterface
      *
      * @see ImageInterface::exif()
      */
-    public function exif(?string $query = null): mixed
+    public function exif(?string $query = null)
     {
         return is_null($query) ? $this->exif : $this->exif->get($query);
     }
@@ -279,7 +279,7 @@ final class Image implements ImageInterface
      *
      * @see ImageInterface::analyze()
      */
-    public function analyze(AnalyzerInterface $analyzer): mixed
+    public function analyze(AnalyzerInterface $analyzer)
     {
         return $this->driver->specialize($analyzer)->analyze($this);
     }
@@ -299,7 +299,7 @@ final class Image implements ImageInterface
      *
      * @see ImageInterface::save()
      */
-    public function save(?string $path = null, mixed ...$options): ImageInterface
+    public function save(?string $path = null, ...$options): ImageInterface
     {
         $path = is_null($path) ? $this->origin()->filePath() : $path;
 
@@ -425,7 +425,7 @@ final class Image implements ImageInterface
      *
      * @see ImageInterface::setBlendingColor()
      */
-    public function setBlendingColor(mixed $color): ImageInterface
+    public function setBlendingColor($color): ImageInterface
     {
         $this->blendingColor = $this->driver()->handleInput($color);
 
@@ -437,7 +437,7 @@ final class Image implements ImageInterface
      *
      * @see ImageInterface::blendTransparency()
      */
-    public function blendTransparency(mixed $color = null): ImageInterface
+    public function blendTransparency($color = null): ImageInterface
     {
         return $this->modify(new BlendTransparencyModifier($color));
     }
@@ -477,7 +477,7 @@ final class Image implements ImageInterface
      *
      * @see ImageInterface::reduceColors()
      */
-    public function reduceColors(int $limit, mixed $background = 'transparent'): ImageInterface
+    public function reduceColors(int $limit, $background = 'transparent'): ImageInterface
     {
         return $this->modify(new QuantizeColorsModifier($limit, $background));
     }
@@ -597,7 +597,7 @@ final class Image implements ImageInterface
      *
      * @see ImageInterface::rotate()
      */
-    public function rotate(float $angle, mixed $background = 'ffffff'): ImageInterface
+    public function rotate(float $angle, $background = 'ffffff'): ImageInterface
     {
         return $this->modify(new RotateModifier($angle, $background));
     }
@@ -686,7 +686,7 @@ final class Image implements ImageInterface
     public function resizeCanvas(
         ?int $width = null,
         ?int $height = null,
-        mixed $background = 'ffffff',
+        $background = 'ffffff',
         string $position = 'center'
     ): ImageInterface {
         return $this->modify(new ResizeCanvasModifier($width, $height, $background, $position));
@@ -700,7 +700,7 @@ final class Image implements ImageInterface
     public function resizeCanvasRelative(
         ?int $width = null,
         ?int $height = null,
-        mixed $background = 'ffffff',
+        $background = 'ffffff',
         string $position = 'center'
     ): ImageInterface {
         return $this->modify(new ResizeCanvasRelativeModifier($width, $height, $background, $position));
@@ -714,7 +714,7 @@ final class Image implements ImageInterface
     public function pad(
         int $width,
         int $height,
-        mixed $background = 'ffffff',
+        $background = 'ffffff',
         string $position = 'center'
     ): ImageInterface {
         return $this->modify(new PadModifier($width, $height, $background, $position));
@@ -728,7 +728,7 @@ final class Image implements ImageInterface
     public function contain(
         int $width,
         int $height,
-        mixed $background = 'ffffff',
+        $background = 'ffffff',
         string $position = 'center'
     ): ImageInterface {
         return $this->modify(new ContainModifier($width, $height, $background, $position));
@@ -744,7 +744,7 @@ final class Image implements ImageInterface
         int $height,
         int $offset_x = 0,
         int $offset_y = 0,
-        mixed $background = 'ffffff',
+        $background = 'ffffff',
         string $position = 'top-left'
     ): ImageInterface {
         return $this->modify(new CropModifier($width, $height, $offset_x, $offset_y, $background, $position));
@@ -766,7 +766,7 @@ final class Image implements ImageInterface
      * @see ImageInterface::place()
      */
     public function place(
-        mixed $element,
+        $element,
         string $position = 'top-left',
         int $offset_x = 0,
         int $offset_y = 0,
@@ -780,7 +780,7 @@ final class Image implements ImageInterface
      *
      * @see ImageInterface::fill()
      */
-    public function fill(mixed $color, ?int $x = null, ?int $y = null): ImageInterface
+    public function fill($color, ?int $x = null, ?int $y = null): ImageInterface
     {
         return $this->modify(
             new FillModifier(
@@ -795,7 +795,7 @@ final class Image implements ImageInterface
      *
      * @see ImageInterface::drawPixel()
      */
-    public function drawPixel(int $x, int $y, mixed $color): ImageInterface
+    public function drawPixel(int $x, int $y, $color): ImageInterface
     {
         return $this->modify(new DrawPixelModifier(new Point($x, $y), $color));
     }
@@ -875,7 +875,7 @@ final class Image implements ImageInterface
      *
      * @see ImageInterface::encodeByMediaType()
      */
-    public function encodeByMediaType(?string $type = null, mixed ...$options): EncodedImageInterface
+    public function encodeByMediaType(?string $type = null, ...$options): EncodedImageInterface
     {
         return $this->encode(new MediaTypeEncoder($type, ...$options));
     }
@@ -885,7 +885,7 @@ final class Image implements ImageInterface
      *
      * @see ImageInterface::encodeByExtension()
      */
-    public function encodeByExtension(?string $extension = null, mixed ...$options): EncodedImageInterface
+    public function encodeByExtension(?string $extension = null, ...$options): EncodedImageInterface
     {
         return $this->encode(new FileExtensionEncoder($extension, ...$options));
     }
@@ -895,7 +895,7 @@ final class Image implements ImageInterface
      *
      * @see ImageInterface::encodeByPath()
      */
-    public function encodeByPath(?string $path = null, mixed ...$options): EncodedImageInterface
+    public function encodeByPath(?string $path = null, ...$options): EncodedImageInterface
     {
         return $this->encode(new FilePathEncoder($path, ...$options));
     }
@@ -905,7 +905,7 @@ final class Image implements ImageInterface
      *
      * @see ImageInterface::toJpeg()
      */
-    public function toJpeg(mixed ...$options): EncodedImageInterface
+    public function toJpeg(...$options): EncodedImageInterface
     {
         return $this->encode(new JpegEncoder(...$options));
     }
@@ -913,11 +913,11 @@ final class Image implements ImageInterface
     /**
      * Alias of self::toJpeg()
      *
-     * @param mixed $options
+     * @param $options
      * @throws RuntimeException
      * @return EncodedImageInterface
      */
-    public function toJpg(mixed ...$options): EncodedImageInterface
+    public function toJpg(...$options): EncodedImageInterface
     {
         return $this->toJpeg(...$options);
     }
@@ -927,7 +927,7 @@ final class Image implements ImageInterface
      *
      * @see ImageInterface::toJpeg()
      */
-    public function toJpeg2000(mixed ...$options): EncodedImageInterface
+    public function toJpeg2000(...$options): EncodedImageInterface
     {
         return $this->encode(new Jpeg2000Encoder(...$options));
     }
@@ -935,11 +935,11 @@ final class Image implements ImageInterface
     /**
      * ALias of self::toJpeg2000()
      *
-     * @param mixed $options
+     * @param $options
      * @throws RuntimeException
      * @return EncodedImageInterface
      */
-    public function toJp2(mixed ...$options): EncodedImageInterface
+    public function toJp2(...$options): EncodedImageInterface
     {
         return $this->toJpeg2000(...$options);
     }
@@ -949,7 +949,7 @@ final class Image implements ImageInterface
      *
      * @see ImageInterface::toPng()
      */
-    public function toPng(mixed ...$options): EncodedImageInterface
+    public function toPng(...$options): EncodedImageInterface
     {
         return $this->encode(new PngEncoder(...$options));
     }
@@ -959,7 +959,7 @@ final class Image implements ImageInterface
      *
      * @see ImageInterface::toGif()
      */
-    public function toGif(mixed ...$options): EncodedImageInterface
+    public function toGif(...$options): EncodedImageInterface
     {
         return $this->encode(new GifEncoder(...$options));
     }
@@ -969,7 +969,7 @@ final class Image implements ImageInterface
      *
      * @see ImageInterface::toWebp()
      */
-    public function toWebp(mixed ...$options): EncodedImageInterface
+    public function toWebp(...$options): EncodedImageInterface
     {
         return $this->encode(new WebpEncoder(...$options));
     }
@@ -979,7 +979,7 @@ final class Image implements ImageInterface
      *
      * @see ImageInterface::toBitmap()
      */
-    public function toBitmap(mixed ...$options): EncodedImageInterface
+    public function toBitmap(...$options): EncodedImageInterface
     {
         return $this->encode(new BmpEncoder(...$options));
     }
@@ -990,7 +990,7 @@ final class Image implements ImageInterface
      * @throws RuntimeException
      * @return EncodedImageInterface
      */
-    public function toBmp(mixed ...$options): EncodedImageInterface
+    public function toBmp(...$options): EncodedImageInterface
     {
         return $this->toBitmap(...$options);
     }
@@ -1000,7 +1000,7 @@ final class Image implements ImageInterface
      *
      * @see ImageInterface::toAvif()
      */
-    public function toAvif(mixed ...$options): EncodedImageInterface
+    public function toAvif(...$options): EncodedImageInterface
     {
         return $this->encode(new AvifEncoder(...$options));
     }
@@ -1010,7 +1010,7 @@ final class Image implements ImageInterface
      *
      * @see ImageInterface::toTiff()
      */
-    public function toTiff(mixed ...$options): EncodedImageInterface
+    public function toTiff(...$options): EncodedImageInterface
     {
         return $this->encode(new TiffEncoder(...$options));
     }
@@ -1018,11 +1018,11 @@ final class Image implements ImageInterface
     /**
      * Alias of self::toTiff()
      *
-     * @param mixed $options
+     * @param $options
      * @throws RuntimeException
      * @return EncodedImageInterface
      */
-    public function toTif(mixed ...$options): EncodedImageInterface
+    public function toTif(...$options): EncodedImageInterface
     {
         return $this->toTiff(...$options);
     }
@@ -1032,7 +1032,7 @@ final class Image implements ImageInterface
      *
      * @see ImageInterface::toHeic()
      */
-    public function toHeic(mixed ...$options): EncodedImageInterface
+    public function toHeic(...$options): EncodedImageInterface
     {
         return $this->encode(new HeicEncoder(...$options));
     }

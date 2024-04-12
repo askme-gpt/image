@@ -12,7 +12,7 @@ use Intervention\Image\Interfaces\SpecializedInterface;
 
 class ProfileAnalyzer extends GenericProfileAnalyzer implements SpecializedInterface
 {
-    public function analyze(ImageInterface $image): mixed
+    public function analyze(ImageInterface $image)
     {
         $profiles = $image->core()->native()->getImageProfiles('icc');
 

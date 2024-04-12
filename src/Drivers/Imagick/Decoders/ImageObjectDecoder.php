@@ -11,7 +11,7 @@ use Intervention\Image\Interfaces\ImageInterface;
 
 class ImageObjectDecoder extends SpecializableDecoder
 {
-    public function decode(mixed $input): ImageInterface|ColorInterface
+    public function decode($input): ImageInterface|ColorInterface
     {
         if (!is_a($input, ImageInterface::class)) {
             throw new DecoderException('Unable to decode input');

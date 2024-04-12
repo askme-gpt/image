@@ -96,12 +96,12 @@ final class ImageManager
      * with all available decoders of the driver.
      *
      * @link https://image.intervention.io/v3/basics/instantiation#reading-images
-     * @param mixed $input
+     * @param $input
      * @param string|array|DecoderInterface $decoders
      * @throws RuntimeException
      * @return ImageInterface
      */
-    public function read(mixed $input, string|array|DecoderInterface $decoders = []): ImageInterface
+    public function read($input, string|array|DecoderInterface $decoders = []): ImageInterface
     {
         return $this->driver->handleInput(
             $input,

@@ -12,7 +12,7 @@ use Intervention\Image\Interfaces\ImageInterface;
 
 class ColorObjectDecoder extends AbstractDecoder implements DecoderInterface
 {
-    public function decode(mixed $input): ImageInterface|ColorInterface
+    public function decode($input): ImageInterface|ColorInterface
     {
         if (!is_a($input, ColorInterface::class)) {
             throw new DecoderException('Unable to decode input');

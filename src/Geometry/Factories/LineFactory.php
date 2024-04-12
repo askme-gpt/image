@@ -29,10 +29,10 @@ class LineFactory
     /**
      * Set the color of the line to be produced
      *
-     * @param mixed $color
+     * @param $color
      * @return LineFactory
      */
-    public function color(mixed $color): self
+    public function color($color): self
     {
         $this->line->setBackgroundColor($color);
         $this->line->setBorderColor($color);
@@ -43,10 +43,10 @@ class LineFactory
     /**
      * Set the (background) color of the line to be produced
      *
-     * @param mixed $color
+     * @param $color
      * @return LineFactory
      */
-    public function background(mixed $color): self
+    public function background($color): self
     {
         $this->line->setBackgroundColor($color);
         $this->line->setBorderColor($color);
@@ -57,11 +57,11 @@ class LineFactory
     /**
      * Set the border size & border color of the line to be produced
      *
-     * @param mixed $color
+     * @param $color
      * @param int $size
      * @return LineFactory
      */
-    public function border(mixed $color, int $size = 1): self
+    public function border($color, int $size = 1): self
     {
         $this->line->setBackgroundColor($color);
         $this->line->setBorderColor($color);

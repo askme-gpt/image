@@ -9,7 +9,7 @@ use Intervention\Image\Interfaces\ImageInterface;
 
 class PixelColorsAnalyzer extends PixelColorAnalyzer
 {
-    public function analyze(ImageInterface $image): mixed
+    public function analyze(ImageInterface $image)
     {
         $colors = new Collection();
         $colorspace = $image->colorspace();

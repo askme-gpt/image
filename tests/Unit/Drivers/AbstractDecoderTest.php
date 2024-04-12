@@ -87,12 +87,12 @@ final class AbstractDecoderTest extends BaseTestCase
     {
         $decoder = new class () extends AbstractDecoder
         {
-            public function parse(mixed $input): object
+            public function parse($input): object
             {
                 return parent::parseDataUri($input);
             }
 
-            public function decode(mixed $input): ImageInterface|ColorInterface
+            public function decode($input): ImageInterface|ColorInterface
             {
                 throw new Exception('');
             }
@@ -130,12 +130,12 @@ final class AbstractDecoderTest extends BaseTestCase
     {
         $decoder = new class () extends AbstractDecoder
         {
-            public function isValid(mixed $input): bool
+            public function isValid($input): bool
             {
                 return parent::isValidBase64($input);
             }
 
-            public function decode(mixed $input): ImageInterface|ColorInterface
+            public function decode($input): ImageInterface|ColorInterface
             {
                 throw new Exception('');
             }

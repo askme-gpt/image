@@ -16,10 +16,11 @@ class StringColorDecoder extends AbstractDecoder implements DecoderInterface
     /**
      * Decode CMYK color strings
      *
-     * @param mixed $input
+     * @param $input
      * @return ImageInterface|ColorInterface
+     * @throws DecoderException
      */
-    public function decode(mixed $input): ImageInterface|ColorInterface
+    public function decode($input)
     {
         if (!is_string($input)) {
             throw new DecoderException('Unable to decode input');

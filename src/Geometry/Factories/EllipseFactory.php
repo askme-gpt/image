@@ -70,10 +70,10 @@ class EllipseFactory
     /**
      * Set the background color of the ellipse to be produced
      *
-     * @param mixed $color
+     * @param $color
      * @return EllipseFactory
      */
-    public function background(mixed $color): self
+    public function background($color): self
     {
         $this->ellipse->setBackgroundColor($color);
 
@@ -83,11 +83,11 @@ class EllipseFactory
     /**
      * Set the border color & border size of the ellipse to be produced
      *
-     * @param mixed $color
+     * @param $color
      * @param int $size
      * @return EllipseFactory
      */
-    public function border(mixed $color, int $size = 1): self
+    public function border($color, int $size = 1): self
     {
         $this->ellipse->setBorder($color, $size);
 

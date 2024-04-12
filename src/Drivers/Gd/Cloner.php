@@ -75,7 +75,7 @@ class Cloner
 
     /**
      * Create a clone of an GdImage that is positioned on the specified background color.
-     * Possible transparent areas are mixed with this color.
+     * Possible transparent areas are with this color.
      *
      * @param GdImage $gd
      * @param ColorInterface $background

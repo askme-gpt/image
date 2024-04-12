@@ -14,7 +14,7 @@ use Intervention\Image\Interfaces\SpecializedInterface;
 
 class PixelColorAnalyzer extends GenericPixelColorAnalyzer implements SpecializedInterface
 {
-    public function analyze(ImageInterface $image): mixed
+    public function analyze(ImageInterface $image)
     {
         return $this->colorAt(
             $image->colorspace(),

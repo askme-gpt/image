@@ -11,7 +11,7 @@ class DrawPixelModifier extends SpecializableModifier
 {
     public function __construct(
         public PointInterface $position,
-        public mixed $color
+        public $color
     ) {
     }
 }

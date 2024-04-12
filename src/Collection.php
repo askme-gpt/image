@@ -12,8 +12,11 @@ use IteratorAggregate;
 
 class Collection implements CollectionInterface, IteratorAggregate, Countable
 {
-    public function __construct(protected array $items = [])
+    protected $items = [];
+
+    public function __construct(array $items = [])
     {
+        $this->items = $items;
     }
 
     /**
@@ -27,10 +30,11 @@ class Collection implements CollectionInterface, IteratorAggregate, Countable
         return new self($items);
     }
 
-    public function has(int|string $key): bool
+    public function has($key): bool
     {
-        return array_key_exists($key, $this->items);
+        return is_string($key) || is_int($key) && array_key_exists($key, $this->items);
     }
+
 
     /**
      * Returns Iterator
@@ -60,7 +64,7 @@ class Collection implements CollectionInterface, IteratorAggregate, Countable
     /**
      * Append new item to collection
      *
-     * @param mixed $item
+     * @param $item
      * @return CollectionInterface
      */
     public function push($item): CollectionInterface
@@ -75,7 +79,7 @@ class Collection implements CollectionInterface, IteratorAggregate, Countable
      *
      * @return mixed
      */
-    public function first(): mixed
+    public function first()
     {
         if ($item = reset($this->items)) {
             return $item;
@@ -89,7 +93,7 @@ class Collection implements CollectionInterface, IteratorAggregate, Countable
      *
      * @return mixed
      */
-    public function last(): mixed
+    public function last()
     {
         if ($item = end($this->items)) {
             return $item;
@@ -104,7 +108,7 @@ class Collection implements CollectionInterface, IteratorAggregate, Countable
      * @param int $key
      * @return mixed
      */
-    public function getAtPosition(int $key = 0, $default = null): mixed
+    public function getAtPosition(int $key = 0, $default = null)
     {
         if ($this->count() == 0) {
             return $default;
@@ -123,7 +127,7 @@ class Collection implements CollectionInterface, IteratorAggregate, Countable
      *
      * @see CollectionInterface::get()
      */
-    public function get(int|string $query, $default = null): mixed
+    public function get($query, $default = null)
     {
         if ($this->count() == 0) {
             return $default;

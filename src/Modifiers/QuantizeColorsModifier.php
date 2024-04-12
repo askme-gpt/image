@@ -10,7 +10,7 @@ class QuantizeColorsModifier extends SpecializableModifier
 {
     public function __construct(
         public int $limit,
-        public mixed $background = 'ffffff'
+        public $background = 'ffffff'
     ) {
     }
 }

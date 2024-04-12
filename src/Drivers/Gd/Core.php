@@ -30,7 +30,7 @@ class Core extends Collection implements CoreInterface
      *
      * @see CoreInterface::native()
      */
-    public function native(): mixed
+    public function native()
     {
         return $this->first()->native();
     }
@@ -40,7 +40,7 @@ class Core extends Collection implements CoreInterface
      *
      * @see CoreInterface::setNative()
      */
-    public function setNative(mixed $native): self
+    public function setNative($native): self
     {
         $this->empty()->push(new Frame($native));
 

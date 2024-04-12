@@ -20,9 +20,9 @@ interface ColorProcessorInterface
     /**
      * Turn the given driver's definition of a color into a color object
      *
-     * @param mixed $native
+     * @param $native
      * @throws ColorException
      * @return ColorInterface
      */
-    public function nativeToColor(mixed $native): ColorInterface;
+    public function nativeToColor($native): ColorInterface;
 }

@@ -14,15 +14,15 @@ interface CoreInterface extends CollectionInterface
      * @throws AnimationException
      * @return mixed
      */
-    public function native(): mixed;
+    public function native();
 
     /**
      * Set driver's representation of the image core.
      *
-     * @param mixed $native
+     * @param $native
      * @return CoreInterface
      */
-    public function setNative(mixed $native): self;
+    public function setNative($native): self;
 
     /**
      * Count number of frames of animated image core

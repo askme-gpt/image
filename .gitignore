@@ -5,3 +5,4 @@ composer.lock
 phpunit.xml
 phpcs.xml
 phpstan.neon
+/.idea/*

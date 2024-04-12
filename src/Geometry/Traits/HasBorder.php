@@ -6,7 +6,7 @@ namespace Intervention\Image\Geometry\Traits;
 
 trait HasBorder
 {
-    protected mixed $borderColor = null;
+    protected $borderColor = null;
     protected int $borderSize = 0;
 
     /**
@@ -14,7 +14,7 @@ trait HasBorder
      *
      * @see DrawableInterface::setBorder()
      */
-    public function setBorder(mixed $color, int $size = 1): self
+    public function setBorder($color, int $size = 1): self
     {
         return $this->setBorderSize($size)->setBorderColor($color);
     }
@@ -46,7 +46,7 @@ trait HasBorder
      *
      * @see DrawableInterface::setBorderColor()
      */
-    public function setBorderColor(mixed $color): self
+    public function setBorderColor($color): self
     {
         $this->borderColor = $color;
 
@@ -58,7 +58,7 @@ trait HasBorder
      *
      * @see DrawableInterface::borderColor()
      */
-    public function borderColor(): mixed
+    public function borderColor()
     {
         return $this->borderColor;
     }

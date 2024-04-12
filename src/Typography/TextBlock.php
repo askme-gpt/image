@@ -41,7 +41,7 @@ class TextBlock extends Collection
     /**
      * Get line by given key
      *
-     * @param mixed $key
+     * @param $key
      * @return null|Line
      */
     public function line($key): ?Line

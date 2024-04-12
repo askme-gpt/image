@@ -15,7 +15,7 @@ class FilePathImageDecoder extends NativeObjectDecoder implements DecoderInterfa
 {
     use CanDecodeGif;
 
-    public function decode(mixed $input): ImageInterface|ColorInterface
+    public function decode($input): ImageInterface|ColorInterface
     {
         if (!$this->isFile($input)) {
             throw new DecoderException('Unable to decode input');

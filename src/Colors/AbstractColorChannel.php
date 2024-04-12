@@ -62,7 +62,7 @@ abstract class AbstractColorChannel implements ColorChannelInterface
      *
      * @see ColorChannelInterface::validate()
      */
-    public function validate(mixed $value): mixed
+    public function validate($value)
     {
         if ($value < $this->min() || $value > $this->max()) {
             throw new ColorException('Color channel value must be in range ' . $this->min() . ' to ' . $this->max());

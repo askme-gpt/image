@@ -11,15 +11,15 @@ interface CollectionInterface extends Traversable
     /**
      * Determine if the collection has item at given key
      *
-     * @param int|string $key
+     * @param  $key
      * @return bool
      */
-    public function has(int|string $key): bool;
+    public function has( $key): bool;
 
     /**
      * Add item to collection
      *
-     * @param mixed $item
+     * @param $item
      * @return CollectionInterface
      */
     public function push($item): self;
@@ -27,34 +27,34 @@ interface CollectionInterface extends Traversable
     /**
      * Return item for given key or return default is key does not exist
      *
-     * @param int|string $key
-     * @param mixed $default
+     * @param  $key
+     * @param $default
      * @return mixed
      */
-    public function get(int|string $key, $default = null): mixed;
+    public function get( $key, $default = null);
 
     /**
      * Return item at given numeric position starting at 0
      *
      * @param int $key
-     * @param mixed $default
+     * @param $default
      * @return mixed
      */
-    public function getAtPosition(int $key = 0, $default = null): mixed;
+    public function getAtPosition(int $key = 0, $default = null);
 
     /**
      * Return first item in collection
      *
      * @return mixed
      */
-    public function first(): mixed;
+    public function first();
 
     /**
      * Return last item in collection
      *
      * @return mixed
      */
-    public function last(): mixed;
+    public function last();
 
     /**
      * Return item count of collection

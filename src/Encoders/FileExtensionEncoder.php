@@ -19,7 +19,7 @@ class FileExtensionEncoder extends AutoEncoder
      * @param null|string $extension Target file extension for example "png"
      * @return void
      */
-    public function __construct(public ?string $extension = null, mixed ...$options)
+    public function __construct(public ?string $extension = null, ...$options)
     {
         $this->options = $options;
     }

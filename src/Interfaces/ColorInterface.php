@@ -13,11 +13,11 @@ interface ColorInterface
      * Static color factory method that takes any supported color format
      * and returns a corresponding color object
      *
-     * @param mixed $input
+     * @param $input
      * @throws RuntimeException
      * @return ColorInterface
      */
-    public static function create(mixed $input): self;
+    public static function create($input): self;
 
     /**
      * Return colorspace of current color

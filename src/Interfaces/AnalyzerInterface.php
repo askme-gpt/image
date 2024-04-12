@@ -15,5 +15,5 @@ interface AnalyzerInterface
      * @throws RuntimeException
      * @return mixed
      */
-    public function analyze(ImageInterface $image): mixed;
+    public function analyze(ImageInterface $image);
 }

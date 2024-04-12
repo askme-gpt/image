@@ -4,11 +4,9 @@ declare(strict_types=1);
 
 namespace Intervention\Image\Tests\Unit;
 
-use PHPUnit\Framework\Attributes\CoversClass;
 use Intervention\Image\Collection;
 use Intervention\Image\Tests\BaseTestCase;
 
-#[CoversClass(Collection::class)]
 final class CollectionTest extends BaseTestCase
 {
     public function testConstructor(): void

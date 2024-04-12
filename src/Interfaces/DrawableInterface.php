@@ -16,17 +16,17 @@ interface DrawableInterface
     /**
      * Set the background color of the drawable object
      *
-     * @param mixed $color
+     * @param $color
      * @return DrawableInterface
      */
-    public function setBackgroundColor(mixed $color): self;
+    public function setBackgroundColor($color): self;
 
     /**
      * Return background color of drawable object
      *
      * @return mixed
      */
-    public function backgroundColor(): mixed;
+    public function backgroundColor();
 
     /**
      * Determine if a background color was set
@@ -38,11 +38,11 @@ interface DrawableInterface
     /**
      * Set border color & size of the drawable object
      *
-     * @param mixed $color
+     * @param $color
      * @param int $size
      * @return DrawableInterface
      */
-    public function setBorder(mixed $color, int $size = 1): self;
+    public function setBorder($color, int $size = 1): self;
 
     /**
      * Set border size of the drawable object
@@ -55,10 +55,10 @@ interface DrawableInterface
     /**
      * Set border color of the drawable object
      *
-     * @param mixed $color
+     * @param $color
      * @return DrawableInterface
      */
-    public function setBorderColor(mixed $color): self;
+    public function setBorderColor($color): self;
 
     /**
      * Get border size
@@ -72,7 +72,7 @@ interface DrawableInterface
      *
      * @return mixed
      */
-    public function borderColor(): mixed;
+    public function borderColor();
 
     /**
      * Determine if the drawable object has a border

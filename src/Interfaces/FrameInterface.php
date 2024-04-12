@@ -13,12 +13,12 @@ interface FrameInterface
      *
      * @return mixed
      */
-    public function native(): mixed;
+    public function native();
 
     /**
      * Set image data of drame in driver specific format
      *
-     * @param mixed $native
+     * @param $native
      * @return FrameInterface
      */
     public function setNative($native): self;

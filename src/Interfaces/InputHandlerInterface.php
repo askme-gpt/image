@@ -11,7 +11,7 @@ interface InputHandlerInterface
     /**
      * Try to decode the given input with each decoder of the the handler chain
      *
-     * @param mixed $input
+     * @param $input
      * @throws RuntimeException
      * @return ImageInterface|ColorInterface
      */

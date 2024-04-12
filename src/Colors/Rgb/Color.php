@@ -51,7 +51,7 @@ class Color extends AbstractColor
      *
      * @see ColorInterface::create()
      */
-    public static function create(mixed $input): ColorInterface
+    public static function create($input): ColorInterface
     {
         return (new class ([
             Decoders\HexColorDecoder::class,

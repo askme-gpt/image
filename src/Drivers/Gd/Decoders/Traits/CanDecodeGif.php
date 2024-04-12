@@ -18,11 +18,11 @@ trait CanDecodeGif
     /**
      * Decode image from given GIF source which can be either a file path or binary data
      *
-     * @param mixed $input
+     * @param $input
      * @throws RuntimeException
      * @return ImageInterface
      */
-    protected function decodeGif(mixed $input): ImageInterface
+    protected function decodeGif($input): ImageInterface
     {
         $gif = GifDecoder::decode($input);
         $splitter = GifSplitter::create($gif)->split();

@@ -43,10 +43,10 @@ class PolygonFactory
     /**
      * Set the background color of the polygon to be produced
      *
-     * @param mixed $color
+     * @param $color
      * @return PolygonFactory
      */
-    public function background(mixed $color): self
+    public function background($color): self
     {
         $this->polygon->setBackgroundColor($color);
 
@@ -56,11 +56,11 @@ class PolygonFactory
     /**
      * Set the border color & border size of the polygon to be produced
      *
-     * @param mixed $color
+     * @param $color
      * @param int $size
      * @return PolygonFactory
      */
-    public function border(mixed $color, int $size = 1): self
+    public function border($color, int $size = 1): self
     {
         $this->polygon->setBorder($color, $size);
 

@@ -24,7 +24,7 @@ class ColorProcessor implements ColorProcessorInterface
         );
     }
 
-    public function nativeToColor(mixed $native): ColorInterface
+    public function nativeToColor($native): ColorInterface
     {
         return match ($this->colorspace::class) {
             CmykColorspace::class => $this->colorspace->colorFromNormalized([

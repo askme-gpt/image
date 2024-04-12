@@ -20,7 +20,7 @@ class NativeObjectDecoder extends AbstractDecoder
      *
      * @see DecoderInterface::decode()
      */
-    public function decode(mixed $input): ImageInterface|ColorInterface
+    public function decode($input): ImageInterface|ColorInterface
     {
         if (!is_object($input)) {
             throw new DecoderException('Unable to decode input');

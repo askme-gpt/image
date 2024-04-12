@@ -10,7 +10,7 @@ use Intervention\Image\Geometry\Point;
 class FillModifier extends SpecializableModifier
 {
     public function __construct(
-        public mixed $color,
+        public $color,
         public ?Point $position = null
     ) {
     }

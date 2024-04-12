@@ -11,7 +11,7 @@ use Intervention\Image\Resolution;
 
 class ResolutionAnalyzer extends GenericResolutionAnalyzer implements SpecializedInterface
 {
-    public function analyze(ImageInterface $image): mixed
+    public function analyze(ImageInterface $image)
     {
         return new Resolution(...imageresolution($image->core()->native()));
     }

@@ -15,7 +15,7 @@ class ResizeCanvasModifier extends SpecializableModifier
     public function __construct(
         public ?int $width = null,
         public ?int $height = null,
-        public mixed $background = 'ffffff',
+        public $background = 'ffffff',
         public string $position = 'center'
     ) {
     }

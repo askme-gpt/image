@@ -116,7 +116,7 @@ class Polygon implements IteratorAggregate, Countable, ArrayAccess, DrawableInte
     /**
      * Determine if point exists at given offset
      *
-     * @param mixed $offset
+     * @param $offset
      * @return bool
      */
     public function offsetExists($offset): bool
@@ -127,10 +127,10 @@ class Polygon implements IteratorAggregate, Countable, ArrayAccess, DrawableInte
     /**
      * Return point at given offset
      *
-     * @param mixed $offset
+     * @param $offset
      * @return Point
      */
-    public function offsetGet($offset): mixed
+    public function offsetGet($offset)
     {
         return $this->points[$offset];
     }
@@ -138,7 +138,7 @@ class Polygon implements IteratorAggregate, Countable, ArrayAccess, DrawableInte
     /**
      * Set point at given offset
      *
-     * @param mixed $offset
+     * @param $offset
      * @param Point $value
      * @return void
      */
@@ -150,7 +150,7 @@ class Polygon implements IteratorAggregate, Countable, ArrayAccess, DrawableInte
     /**
      * Unset offset at given offset
      *
-     * @param mixed $offset
+     * @param $offset
      * @return void
      */
     public function offsetUnset($offset): void

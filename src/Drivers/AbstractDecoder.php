@@ -25,11 +25,11 @@ abstract class AbstractDecoder implements DecoderInterface
     /**
      * Try to decode given input to image or color object
      *
-     * @param mixed $input
+     * @param $input
      * @throws RuntimeException
      * @return ImageInterface|ColorInterface
      */
-    final public function handle(mixed $input): ImageInterface|ColorInterface
+    final public function handle($input): ImageInterface|ColorInterface
     {
         try {
             $decoded = $this->decode($input);
@@ -71,10 +71,10 @@ abstract class AbstractDecoder implements DecoderInterface
     /**
      * Determine if given input is a path to an existing regular file
      *
-     * @param mixed $input
+     * @param $input
      * @return bool
      */
-    protected function isFile(mixed $input): bool
+    protected function isFile($input): bool
     {
         if (!is_string($input)) {
             return false;
@@ -129,10 +129,10 @@ abstract class AbstractDecoder implements DecoderInterface
     /**
      * Determine if given input is base64 encoded data
      *
-     * @param mixed $input
+     * @param $input
      * @return bool
      */
-    protected function isValidBase64(mixed $input): bool
+    protected function isValidBase64($input): bool
     {
         if (!is_string($input)) {
             return false;
@@ -144,10 +144,10 @@ abstract class AbstractDecoder implements DecoderInterface
     /**
      * Parse data uri
      *
-     * @param mixed $input
+     * @param $input
      * @return object
      */
-    protected function parseDataUri(mixed $input): object
+    protected function parseDataUri($input): object
     {
         $pattern = "/^data:(?P<mediatype>\w+\/[-+.\w]+)?" .
             "(?P<parameters>(;[-\w]+=[-\w]+)*)(?P<base64>;base64)?,(?P<data>.*)/";

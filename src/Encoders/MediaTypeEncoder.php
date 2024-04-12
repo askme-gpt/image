@@ -20,7 +20,7 @@ class MediaTypeEncoder extends AbstractEncoder
      * @param null|string $mediaType Target media type for example "image/jpeg"
      * @return void
      */
-    public function __construct(public ?string $mediaType = null, mixed ...$options)
+    public function __construct(public ?string $mediaType = null, ...$options)
     {
         $this->options = $options;
     }

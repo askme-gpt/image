@@ -8,7 +8,7 @@ use Intervention\Image\Drivers\SpecializableModifier;
 
 class BlendTransparencyModifier extends SpecializableModifier
 {
-    public function __construct(public mixed $color = null)
+    public function __construct(public $color = null)
     {
     }
 }

@@ -15,7 +15,7 @@ class FilePathEncoder extends FileExtensionEncoder
      * @param null|string $path
      * @return void
      */
-    public function __construct(protected ?string $path = null, mixed ...$options)
+    public function __construct(protected ?string $path = null, ...$options)
     {
         parent::__construct(
             is_null($path) ? $path : pathinfo($path, PATHINFO_EXTENSION),

@@ -11,32 +11,32 @@ interface FontInterface
     /**
      * Set color of font
      *
-     * @param mixed $color
+     * @param $color
      * @return FontInterface
      */
-    public function setColor(mixed $color): self;
+    public function setColor($color): self;
 
     /**
      * Get color of font
      *
      * @return mixed
      */
-    public function color(): mixed;
+    public function color();
 
     /**
      * Set stroke color of font
      *
-     * @param mixed $color
+     * @param $color
      * @return FontInterface
      */
-    public function setStrokeColor(mixed $color): self;
+    public function setStrokeColor($color): self;
 
     /**
      * Get stroke color of font
      *
      * @return mixed
      */
-    public function strokeColor(): mixed;
+    public function strokeColor();
 
     /**
     /**

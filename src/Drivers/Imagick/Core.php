@@ -31,7 +31,7 @@ class Core implements CoreInterface, Iterator
      *
      * @see CollectionInterface::has()
      */
-    public function has(int|string $key): bool
+    public function has( $key): bool
     {
         try {
             $result = $this->imagick->setIteratorIndex($key);
@@ -57,7 +57,7 @@ class Core implements CoreInterface, Iterator
      *
      * @see CollectionInterface::get()
      */
-    public function get(int|string $key, $default = null): mixed
+    public function get( $key, $default = null)
     {
         try {
             $this->imagick->setIteratorIndex($key);
@@ -73,7 +73,7 @@ class Core implements CoreInterface, Iterator
      *
      * @see CollectionInterface::getAtPosition()
      */
-    public function getAtPosition(int $key = 0, $default = null): mixed
+    public function getAtPosition(int $key = 0, $default = null)
     {
         return $this->get($key, $default);
     }
@@ -161,7 +161,7 @@ class Core implements CoreInterface, Iterator
      *
      * @see Iterator::rewind()
      */
-    public function current(): mixed
+    public function current()
     {
         $this->imagick->setIteratorIndex($this->iteratorIndex);
 
@@ -183,7 +183,7 @@ class Core implements CoreInterface, Iterator
      *
      * @see Iterator::rewind()
      */
-    public function key(): mixed
+    public function key()
     {
         return $this->iteratorIndex;
     }
@@ -219,7 +219,7 @@ class Core implements CoreInterface, Iterator
      *
      * @see CoreInterface::native()
      */
-    public function native(): mixed
+    public function native()
     {
         return $this->imagick;
     }
@@ -229,7 +229,7 @@ class Core implements CoreInterface, Iterator
      *
      * @see CoreInterface::setNative()
      */
-    public function setNative(mixed $native): CoreInterface
+    public function setNative($native): CoreInterface
     {
         $this->imagick = $native;
 

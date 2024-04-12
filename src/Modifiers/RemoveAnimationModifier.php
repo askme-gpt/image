@@ -12,14 +12,14 @@ use Intervention\Image\Interfaces\ImageInterface;
 
 class RemoveAnimationModifier extends SpecializableModifier
 {
-    public function __construct(public int|string $position = 0)
+    public function __construct(public  $position = 0)
     {
     }
 
     /**
      * @throws RuntimeException
      */
-    public function chosenFrame(ImageInterface $image, int|string $position): FrameInterface
+    public function chosenFrame(ImageInterface $image,  $position): FrameInterface
     {
         if (is_int($position)) {
             return $image->core()->frame($position);

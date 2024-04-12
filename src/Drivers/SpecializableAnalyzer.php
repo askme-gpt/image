@@ -14,7 +14,7 @@ abstract class SpecializableAnalyzer extends Specializable implements AnalyzerIn
      *
      * @see AnalyzerInterface::analyze()
      */
-    public function analyze(ImageInterface $image): mixed
+    public function analyze(ImageInterface $image)
     {
         return $image->analyze($this);
     }

@@ -70,10 +70,10 @@ class RectangleFactory
     /**
      * Set the background color of the rectangle to be produced
      *
-     * @param mixed $color
+     * @param $color
      * @return RectangleFactory
      */
-    public function background(mixed $color): self
+    public function background($color): self
     {
         $this->rectangle->setBackgroundColor($color);
 
@@ -83,11 +83,11 @@ class RectangleFactory
     /**
      * Set the border color & border size of the rectangle to be produced
      *
-     * @param mixed $color
+     * @param $color
      * @param int $size
      * @return RectangleFactory
      */
-    public function border(mixed $color, int $size = 1): self
+    public function border($color, int $size = 1): self
     {
         $this->rectangle->setBorder($color, $size);
 

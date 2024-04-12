@@ -12,7 +12,7 @@ use Intervention\Image\Interfaces\ImageInterface;
 
 class FilePathImageDecoder extends NativeObjectDecoder
 {
-    public function decode(mixed $input): ImageInterface|ColorInterface
+    public function decode($input): ImageInterface|ColorInterface
     {
         if (!$this->isFile($input)) {
             throw new DecoderException('Unable to decode input');

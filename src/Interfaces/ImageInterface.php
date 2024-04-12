@@ -73,11 +73,11 @@ interface ImageInterface extends IteratorAggregate, Countable
      * Encode image with given encoder
      *
      * @link https://image.intervention.io/v3/basics/image-output#encoding-images
-     * @param EncoderInterface $encoder
+     * @param EncoderInterface|null $encoder
      * @throws RuntimeException
      * @return EncodedImageInterface
      */
-    public function encode(EncoderInterface $encoder = new AutoEncoder()): EncodedImageInterface;
+    public function encode(?EncoderInterface $encoder = null): EncodedImageInterface;
 
     /**
      * Save the image to the specified path in the file system. If no path is
@@ -85,10 +85,12 @@ interface ImageInterface extends IteratorAggregate, Countable
      *
      * @link https://image.intervention.io/v3/basics/image-output#writing-images-directly
      * @param null|string $path
+     * @param ...$options
      * @throws RuntimeException
      * @return ImageInterface
      */
-    public function save(?string $path = null, mixed ...$options): self;
+    public function save(?string $path = null, ...$options): self;
+
 
     /**
      * Apply given modifier to current image
@@ -107,7 +109,7 @@ interface ImageInterface extends IteratorAggregate, Countable
      * @throws RuntimeException
      * @return mixed
      */
-    public function analyze(AnalyzerInterface $analyzer): mixed;
+    public function analyze(AnalyzerInterface $analyzer);
 
     /**
      * Determine if current image is animated
@@ -126,11 +128,11 @@ interface ImageInterface extends IteratorAggregate, Countable
      * and the respective frame position is only determined approximately.
      *
      * @link https://image.intervention.io/v3/modifying/animations#removing-animation
-     * @param int|string $position
+     * @param  $position
      * @throws RuntimeException
      * @return ImageInterface
      */
-    public function removeAnimation(int|string $position = 0): self;
+    public function removeAnimation( $position = 0): self;
 
     /**
      * Extract animation frames based on given values and discard the rest
@@ -166,7 +168,7 @@ interface ImageInterface extends IteratorAggregate, Countable
      * @link https://image.intervention.io/v3/basics/meta-information#exif-information
      * @return mixed
      */
-    public function exif(?string $query = null): mixed;
+    public function exif(?string $query = null);
 
     /**
      * Set exif data for the image object
@@ -213,7 +215,8 @@ interface ImageInterface extends IteratorAggregate, Countable
      * @throws RuntimeException
      * @return ImageInterface
      */
-    public function setColorspace(string|ColorspaceInterface $colorspace): self;
+    public function setColorspace($colorspace): self;
+
 
     /**
      * Return color of pixel at given position on given frame position
@@ -239,7 +242,7 @@ interface ImageInterface extends IteratorAggregate, Countable
     public function pickColors(int $x, int $y): CollectionInterface;
 
     /**
-     * Return color that is mixed with transparent areas when converting to a format which
+     * Return color that is with transparent areas when converting to a format which
      * does not support transparency.
      *
      * @link https://image.intervention.io/v3/basics/colors#transparency
@@ -252,20 +255,20 @@ interface ImageInterface extends IteratorAggregate, Countable
      * which does not support transparency.
      *
      * @link https://image.intervention.io/v3/basics/colors#transparency
-     * @param mixed $color
+     * @param $color
      * @throws RuntimeException
      * @return ImageInterface
      */
-    public function setBlendingColor(mixed $color): self;
+    public function setBlendingColor($color): self;
 
     /**
      * Replace transparent areas of the image with given color
      *
-     * @param mixed $color
+     * @param $color
      * @throws RuntimeException
      * @return ImageInterface
      */
-    public function blendTransparency(mixed $color = null): self;
+    public function blendTransparency($color = null): self;
 
     /**
      * Retrieve ICC color profile of image
@@ -300,11 +303,11 @@ interface ImageInterface extends IteratorAggregate, Countable
      *
      * @link https://image.intervention.io/v3/modifying/effects#reduce-colors
      * @param int $limit
-     * @param mixed $background
+     * @param $background
      * @throws RuntimeException
      * @return ImageInterface
      */
-    public function reduceColors(int $limit, mixed $background = 'transparent'): self;
+    public function reduceColors(int $limit, $background = 'transparent'): self;
 
     /**
      * Sharpen the current image with given strength
@@ -423,7 +426,7 @@ interface ImageInterface extends IteratorAggregate, Countable
      * @throws RuntimeException
      * @return ImageInterface
      */
-    public function rotate(float $angle, mixed $background = 'ffffff'): self;
+    public function rotate(float $angle, $background = 'ffffff'): self;
 
     /**
      * Draw text on image
@@ -519,14 +522,14 @@ interface ImageInterface extends IteratorAggregate, Countable
      * @param null|int $width
      * @param null|int $height
      * @param string $position
-     * @param mixed $background
+     * @param $background
      * @throws RuntimeException
      * @return ImageInterface
      */
     public function resizeCanvas(
         ?int $width = null,
         ?int $height = null,
-        mixed $background = 'ffffff',
+        $background = 'ffffff',
         string $position = 'center'
     ): self;
 
@@ -539,14 +542,14 @@ interface ImageInterface extends IteratorAggregate, Countable
      * @param null|int $width
      * @param null|int $height
      * @param string $position
-     * @param mixed $background
+     * @param $background
      * @throws RuntimeException
      * @return ImageInterface
      */
     public function resizeCanvasRelative(
         ?int $width = null,
         ?int $height = null,
-        mixed $background = 'ffffff',
+        $background = 'ffffff',
         string $position = 'center'
     ): self;
 
@@ -570,7 +573,7 @@ interface ImageInterface extends IteratorAggregate, Countable
     public function pad(
         int $width,
         int $height,
-        mixed $background = 'ffffff',
+        $background = 'ffffff',
         string $position = 'center'
     ): self;
 
@@ -589,7 +592,7 @@ interface ImageInterface extends IteratorAggregate, Countable
     public function contain(
         int $width,
         int $height,
-        mixed $background = 'ffffff',
+        $background = 'ffffff',
         string $position = 'center'
     ): self;
 
@@ -603,7 +606,7 @@ interface ImageInterface extends IteratorAggregate, Countable
      * @param int $height
      * @param int $offset_x
      * @param int $offset_y
-     * @param mixed $background
+     * @param $background
      * @param string $position
      * @throws RuntimeException
      * @return ImageInterface
@@ -613,7 +616,7 @@ interface ImageInterface extends IteratorAggregate, Countable
         int $height,
         int $offset_x = 0,
         int $offset_y = 0,
-        mixed $background = 'ffffff',
+        $background = 'ffffff',
         string $position = 'top-left'
     ): self;
 
@@ -631,7 +634,7 @@ interface ImageInterface extends IteratorAggregate, Countable
      * Place another image into the current image instance
      *
      * @link https://image.intervention.io/v3/modifying/inserting
-     * @param mixed $element
+     * @param $element
      * @param string $position
      * @param int $offset_x
      * @param int $offset_y
@@ -640,7 +643,7 @@ interface ImageInterface extends IteratorAggregate, Countable
      * @return ImageInterface
      */
     public function place(
-        mixed $element,
+        $element,
         string $position = 'top-left',
         int $offset_x = 0,
         int $offset_y = 0,
@@ -658,13 +661,13 @@ interface ImageInterface extends IteratorAggregate, Countable
      * If no coordinates are specified, the entire image area is filled.
      *
      * @link https://image.intervention.io/v3/modifying/drawing#fill-images-with-color
-     * @param mixed $color
+     * @param $color
      * @param null|int $x
      * @param null|int $y
      * @throws RuntimeException
      * @return ImageInterface
      */
-    public function fill(mixed $color, ?int $x = null, ?int $y = null): self;
+    public function fill($color, ?int $x = null, ?int $y = null): self;
 
     /**
      * Draw a single pixel at given position defined by the coordinates x and y in a given color.
@@ -672,11 +675,11 @@ interface ImageInterface extends IteratorAggregate, Countable
      * @link https://image.intervention.io/v3/modifying/drawing#drawing-a-pixel
      * @param int $x
      * @param int $y
-     * @param mixed $color
+     * @param $color
      * @throws RuntimeException
      * @return ImageInterface
      */
-    public function drawPixel(int $x, int $y, mixed $color): self;
+    public function drawPixel(int $x, int $y, $color): self;
 
     /**
      * Draw a rectangle on the current image
@@ -743,7 +746,7 @@ interface ImageInterface extends IteratorAggregate, Countable
      * @throws RuntimeException
      * @return EncodedImageInterface
      */
-    public function encodeByMediaType(?string $type = null, mixed ...$options): EncodedImageInterface;
+    public function encodeByMediaType(?string $type = null, ...$options): EncodedImageInterface;
 
     /**
      * Encode the image into the format represented by the given extension. If no
@@ -755,7 +758,7 @@ interface ImageInterface extends IteratorAggregate, Countable
      * @throws RuntimeException
      * @return EncodedImageInterface
      */
-    public function encodeByExtension(?string $extension = null, mixed ...$options): EncodedImageInterface;
+    public function encodeByExtension(?string $extension = null, ...$options): EncodedImageInterface;
 
     /**
      * Encode the image into the format represented by the given extension of
@@ -767,96 +770,96 @@ interface ImageInterface extends IteratorAggregate, Countable
      * @throws RuntimeException
      * @return EncodedImageInterface
      */
-    public function encodeByPath(?string $path = null, mixed ...$options): EncodedImageInterface;
+    public function encodeByPath(?string $path = null, ...$options): EncodedImageInterface;
 
     /**
      * Encode image to JPEG format
      *
      * @link https://image.intervention.io/v3/basics/image-output#encoding-jpeg-format
-     * @param mixed $options
+     * @param $options
      * @throws RuntimeException
      * @return EncodedImageInterface
      */
 
-    public function toJpeg(mixed ...$options): EncodedImageInterface;
+    public function toJpeg(...$options): EncodedImageInterface;
 
     /**
      * Encode image to Jpeg2000 format
      *
      * @link https://image.intervention.io/v3/basics/image-output#encoding-jpeg-2000-format
-     * @param mixed $options
+     * @param $options
      * @throws RuntimeException
      * @return EncodedImageInterface
      */
-    public function toJpeg2000(mixed ...$options): EncodedImageInterface;
+    public function toJpeg2000(...$options): EncodedImageInterface;
 
     /**
      * Encode image to Webp format
      *
      * @link https://image.intervention.io/v3/basics/image-output#encoding-webp-format
-     * @param mixed $options
+     * @param $options
      * @throws RuntimeException
      * @return EncodedImageInterface
      */
-    public function toWebp(mixed ...$options): EncodedImageInterface;
+    public function toWebp(...$options): EncodedImageInterface;
 
     /**
      * Encode image to PNG format
      *
      * @link https://image.intervention.io/v3/basics/image-output#encoding-png-format
-     * @param mixed $options
+     * @param $options
      * @throws RuntimeException
      * @return EncodedImageInterface
      */
-    public function toPng(mixed ...$options): EncodedImageInterface;
+    public function toPng(...$options): EncodedImageInterface;
 
     /**
      * Encode image to GIF format
      *
      * @link https://image.intervention.io/v3/basics/image-output#encoding-gif-format
-     * @param mixed $options
+     * @param $options
      * @throws RuntimeException
      * @return EncodedImageInterface
      */
-    public function toGif(mixed ...$options): EncodedImageInterface;
+    public function toGif(...$options): EncodedImageInterface;
 
     /**
      * Encode image to Bitmap format
      *
      * @link https://image.intervention.io/v3/basics/image-output#encoding-windows-bitmap-format
-     * @param mixed $options
+     * @param $options
      * @throws RuntimeException
      * @return EncodedImageInterface
      */
-    public function toBitmap(mixed ...$options): EncodedImageInterface;
+    public function toBitmap(...$options): EncodedImageInterface;
 
     /**
      * Encode image to AVIF format
      *
      * @link https://image.intervention.io/v3/basics/image-output#encoding-av1-image-file-format-avif
-     * @param mixed $options
+     * @param $options
      * @throws RuntimeException
      * @return EncodedImageInterface
      */
-    public function toAvif(mixed ...$options): EncodedImageInterface;
+    public function toAvif(...$options): EncodedImageInterface;
 
     /**
      * Encode image to TIFF format
      *
      * @link https://image.intervention.io/v3/basics/image-output#encoding-tiff-format
-     * @param mixed $options
+     * @param $options
      * @throws RuntimeException
      * @return EncodedImageInterface
      */
-    public function toTiff(mixed ...$options): EncodedImageInterface;
+    public function toTiff(...$options): EncodedImageInterface;
 
     /**
      * Encode image to HEIC format
      *
      * @link https://image.intervention.io/v3/basics/image-output#encoding-heic-format
-     * @param mixed $options
+     * @param $options
      * @throws RuntimeException
      * @return EncodedImageInterface
      */
-    public function toHeic(mixed ...$options): EncodedImageInterface;
+    public function toHeic(...$options): EncodedImageInterface;
 }

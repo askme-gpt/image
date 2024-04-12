@@ -63,12 +63,12 @@ class FontFactory
     /**
      * Set outline stroke effect for the font to be built
      *
-     * @param mixed $color
+     * @param $color
      * @param int $width
      * @throws FontException
      * @return FontFactory
      */
-    public function stroke(mixed $color, int $width = 1): self
+    public function stroke($color, int $width = 1): self
     {
         $this->font->setStrokeWidth($width);
         $this->font->setStrokeColor($color);
@@ -79,10 +79,10 @@ class FontFactory
     /**
      * Set color for the font to be built
      *
-     * @param mixed $value
+     * @param $value
      * @return FontFactory
      */
-    public function color(mixed $value): self
+    public function color($value): self
     {
         $this->font->setColor($value);
 

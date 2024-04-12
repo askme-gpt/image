@@ -38,7 +38,7 @@ interface ColorChannelInterface
      * @throws ColorException
      * @return mixed
      */
-    public function validate(mixed $value): mixed;
+    public function validate($value);
 
     /**
      * Return the the minimal possible value of the color channel

@@ -6,14 +6,14 @@ namespace Intervention\Image\Geometry\Traits;
 
 trait HasBackgroundColor
 {
-    protected mixed $backgroundColor = null;
+    protected $backgroundColor = null;
 
     /**
      * {@inheritdoc}
      *
      * @see DrawableInterface::setBackgroundColor()
      */
-    public function setBackgroundColor(mixed $color): self
+    public function setBackgroundColor($color): self
     {
         $this->backgroundColor = $color;
 
@@ -25,7 +25,7 @@ trait HasBackgroundColor
      *
      * @see DrawableInterface::backgroundColor()
      */
-    public function backgroundColor(): mixed
+    public function backgroundColor()
     {
         return $this->backgroundColor;
     }

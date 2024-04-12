@@ -10,7 +10,7 @@ use Intervention\Image\Interfaces\SpecializedInterface;
 
 class HeightAnalyzer extends GenericHeightAnalyzer implements SpecializedInterface
 {
-    public function analyze(ImageInterface $image): mixed
+    public function analyze(ImageInterface $image)
     {
         return imagesy($image->core()->native());
     }

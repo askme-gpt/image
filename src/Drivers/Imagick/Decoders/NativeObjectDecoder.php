@@ -16,7 +16,7 @@ use Intervention\Image\Modifiers\AlignRotationModifier;
 
 class NativeObjectDecoder extends SpecializableDecoder
 {
-    public function decode(mixed $input): ImageInterface|ColorInterface
+    public function decode($input): ImageInterface|ColorInterface
     {
         if (!is_object($input)) {
             throw new DecoderException('Unable to decode input');

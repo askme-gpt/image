@@ -17,7 +17,7 @@ class CropModifier extends SpecializableModifier
         public int $height,
         public int $offset_x = 0,
         public int $offset_y = 0,
-        public mixed $background = 'f00',
+        public $background = 'f00',
         public string $position = 'top-left'
     ) {
     }

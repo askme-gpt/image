@@ -15,7 +15,7 @@ class ContainModifier extends SpecializableModifier
     public function __construct(
         public int $width,
         public int $height,
-        public mixed $background = 'ffffff',
+        public $background = 'ffffff',
         public string $position = 'center'
     ) {
     }
